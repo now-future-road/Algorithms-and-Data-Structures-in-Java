@@ -1,6 +1,6 @@
 package Assignment_2;
 import java.util.Iterator;
-public class MyArrayList<T> implements MyList<T> {
+public class MyArrayList<T extends Comparable<T>> implements MyList<T> {
     private Object[] elements;
     private int size;
     private static final int defaultCapacity = 3    ;
@@ -107,12 +107,14 @@ public class MyArrayList<T> implements MyList<T> {
     }
 
     @Override
-    public void sort() {
 
+    public void sort() {
         for (int i = 0; i < size; i++) {
             for (int j = i + 1; j < size; j++) {
-                if (((Comparable)elements[i]).compareTo(elements[j]) > 0) {
+                Comparable<T> left = (Comparable<T>) elements[i];
+                T right = (T) elements[j];
 
+                if (left.compareTo(right) > 0) {
                     Object temp = elements[i];
                     elements[i] = elements[j];
                     elements[j] = temp;

@@ -1,6 +1,6 @@
 package Assignment_2;
 
-public class MyStack<T> {
+public class MyStack<T extends Comparable<T>> {
     private MyArrayList<T> list = new MyArrayList<>();
 
     public void push(T item) {

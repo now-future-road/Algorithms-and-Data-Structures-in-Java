@@ -1,6 +1,6 @@
 package Assignment_2;
 
-public class MyQueue<T> {
+public class MyQueue<T extends Comparable<T>> {
     private MyLinkedList<T> list = new MyLinkedList<>();
 
     public void enqueue(T item) {

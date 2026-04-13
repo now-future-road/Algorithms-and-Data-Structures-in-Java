@@ -11,13 +11,15 @@ public class MyMinHeap<T extends Comparable<T>> {
     public T extractMin() {
         if (isEmpty()) throw new RuntimeException("Heap is empty");
         T min = list.get(0);
-        T lastItem =  list.get(list.size()-1);
+        T lastItem = list.get(list.size() - 1);
+
+        list.removeLast();
 
         if (!isEmpty()) {
             list.set(0, lastItem);
             heapify(0);
         }
-        return lastItem;
+        return min;
     }
 
     private void traverseUp(int index) {

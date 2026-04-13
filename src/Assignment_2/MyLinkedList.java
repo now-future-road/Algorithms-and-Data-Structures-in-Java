@@ -2,7 +2,7 @@ package Assignment_2;
 
 import java.util.Iterator;
 
-public class MyLinkedList<T> implements MyList<T> {
+public class MyLinkedList<T extends Comparable<T>> implements MyList<T> {
 
     private static class MyNode<T> {
         T data;
