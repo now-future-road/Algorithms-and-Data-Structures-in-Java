@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Iterator; // REQUIRED
 import java.util.Stack;
 
-// 1. ADD "implements Iterable<K>"
 public class bst<K extends Comparable<K>, V> implements Iterable<K> {
     private Node root;
     private int size = 1;
@@ -23,14 +22,14 @@ public class bst<K extends Comparable<K>, V> implements Iterable<K> {
 
     public void put(K key, V val) {
         if (root == null) {
-            root = new Node(key, val); // Fix: Remove "Node" type to update class root
+            root = new Node(key, val);
             return;
         }
         Node current = root;
         Node parent = null;
         int cmp = 0;
 
-        while (current != null) { // Fix: Loop on current, not root
+        while (current != null) { 
             parent = current;
             cmp = key.compareTo(current.key);
             if (cmp < 0) current = current.left;
@@ -42,7 +41,7 @@ public class bst<K extends Comparable<K>, V> implements Iterable<K> {
         }
 
         Node newNode = new Node(key, val);
-        if (cmp < 0) parent.left = newNode; // Fix: Actually connect the node
+        if (cmp < 0) parent.left = newNode; 
         else parent.right = newNode;
         size++;
     }
