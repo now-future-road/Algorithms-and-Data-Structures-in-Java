@@ -28,8 +28,6 @@ public class DijkstraSearch<T> extends Search<T> {
                 Vertex<T> currentVertex = graph.getVertex(currentNode);
                 Vertex<T> neighborVertex = graph.getVertex(neighbor);
 
-                // FIX: Pass the Vertex objects (currentVertex, neighborVertex)
-                // instead of the data (currentNode, neighbor)
                 double newDistance = getShortestDistance(currentNode) + getDistance(currentVertex, neighborVertex);
 
                 if (getShortestDistance(neighbor) > newDistance) {
@@ -42,7 +40,6 @@ public class DijkstraSearch<T> extends Search<T> {
         }}
 
     private double getDistance(Vertex<T> node, Vertex<T> target) {
-        // Logic: Loop through the keys (neighbors) of the 'node'
         for (Vertex<T> neighbor : node.getAdjacentVertices().keySet()) {
             if (neighbor.equals(target))
                 return node.get(neighbor); // Returns the weight
